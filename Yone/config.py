@@ -17,7 +17,7 @@ class Config(object):
     OWNER_USERNAME = "sultan11100"
     SUPPORT_CHAT = "AM_YTSUPPORT"
     JOIN_LOGGER = "-1001841879487"
-    EVENT_LOGS = "-1001908711819"
+    EVENT_LOGS = "-1001841879487"
     BOT_USERNAME = "Morgana_tg_bot"
     BOT_NAME = "Morgana"
     # 
