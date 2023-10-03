@@ -29,7 +29,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
-    TOKEN = os.environ.get("TOKEN", "2027757649:AAHLgxIf1W2YDU6Ghj5sCLSjFqnrAaXEHtQ")
+    TOKEN = os.environ.get("TOKEN", "5808748296:AAHLNo8-xkCAOZxNM-3dKJ8Wvuuxedp7TSI")
 
     try:
         OWNER_ID = int(os.environ.get("OWNER_ID", "2105971379"))
@@ -57,7 +57,7 @@ if ENV:
         raise Exception("Please Add Hash Api key to start the bot")
 
     DB_URI = os.environ.get("DATABASE_URL","postgres://citus:AbhiModszYT12@c-kora.6xoe5irno5ccbx.postgres.cosmos.azure.com:5432/kora")
-    PHOTO = os.environ.get("PHOTO", "https://graph.org/file/4d325b62578e7005a3b05.jpg") # Miss Poppy Pic
+    PHOTO = os.environ.get("PHOTO", "https://graph.org/file/2d3f35226a0d59cbb9980.jpg") # Miss Poppy Pic
     WORKERS = int(os.environ.get("WORKERS", 8))
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
@@ -71,10 +71,10 @@ if ENV:
     CERT_PATH = os.environ.get("CERT_PATH")
     URL = os.environ.get("URL", "")  # Does not contain token
     PORT = int(os.environ.get("PORT", 5000))
-    BOT_USERNAME = os.environ.get("BOT_USERNAME", "Kora_Xbot")
-    BOT_NAME = os.environ.get("BOT_NAME", "Kora")
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", "Morgana_tg_bot")
+    BOT_NAME = os.environ.get("BOT_NAME", "Morgana")
     LOAD = os.environ.get("LOAD", "").split()
-    NO_LOAD = os.environ.get("NO_LOAD","afk").split()
+    NO_LOAD = os.environ.get("NO_LOAD","").split()
 
     DEL_CMDS = bool(os.environ.get("DEL_CMDS", True))
     INFOPIC = bool(os.environ.get("INFOPIC", False))
