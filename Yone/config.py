@@ -18,8 +18,8 @@ class Config(object):
     SUPPORT_CHAT = "Yone_Support"
     JOIN_LOGGER = "-1001841879487"
     EVENT_LOGS = "-1001908711819"
-    BOT_USERNAME = "Kora_Xbot"
-    BOT_NAME = "Kora"
+    BOT_USERNAME = "Morgana_tg_bot"
+    BOT_NAME = "Morgana"
     # 
     # DATABASE_URL = "postgres://ixweewbx:9OoB_feF6d6wK1W4YycgwHzRHQXezsNA@arjuna.db.elephantsql.com/ixweewbx"  # sql
     DATABASE_URL = "postgres://citus:AbhiModszYT12@c-kora.6xoe5irno5ccbx.postgres.cosmos.azure.com:5432/kora"  # sql
@@ -40,7 +40,7 @@ class Config(object):
     WORKERS = 20
     ALLOW_EXCL = True
     ALLOW_CHATS = True
-    PHOTO = "https://graph.org/file/4d325b62578e7005a3b05.jpg" # Miss Poppy Music Pic
+    PHOTO = "https://graph.org/file/2d3f35226a0d59cbb9980.jpg" # Miss Poppy Music Pic
     INFOPIC = True
 
 
