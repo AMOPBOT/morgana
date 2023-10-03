@@ -64,7 +64,7 @@ if ENV:
 
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "sultan11100")
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "AM_YTSUPPORT")
-    EVENT_LOGS = os.environ.get("EVENT_LOGS", "-1001908711819")
+    EVENT_LOGS = os.environ.get("EVENT_LOGS", "-1001841879487")
     JOIN_LOGGER = os.environ.get("JOIN_LOGGER", "-1001841879487")
 
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
