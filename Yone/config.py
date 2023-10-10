@@ -22,7 +22,7 @@ class Config(object):
     BOT_NAME = "Morgana"
     # 
     # DATABASE_URL = "postgres://ixweewbx:9OoB_feF6d6wK1W4YycgwHzRHQXezsNA@arjuna.db.elephantsql.com/ixweewbx"  # sql
-    DATABASE_URL = "postgres://citus:AbhiModszYT12@c-kora.6xoe5irno5ccbx.postgres.cosmos.azure.com:5432/kora"  # sql
+    DATABASE_URL = "postgres://mqcodhup:WHSi5X3wFJwDQeTl8PXS4hb-PInzGxQo@bubble.db.elephantsql.com/mqcodhup"  # sql
     LOAD = []
     NO_LOAD = []
     WEBHOOK = False
