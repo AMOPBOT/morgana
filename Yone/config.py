@@ -12,7 +12,7 @@ class Config(object):
 
     API_ID = "12227067"
     API_HASH = "b463bedd791aa733ae2297e6520302fe"
-    TOKEN = "5808748296:AAHLNo8-xkCAOZxNM-3dKJ8Wvuuxedp7TSI"
+    TOKEN = "5808748296:AAGqmRPuBxl47viDpKFVirgX-eL__ojIlZg"
     OWNER_ID = "2105971379"
     OWNER_USERNAME = "sultan11100"
     SUPPORT_CHAT = "AM_YTSUPPORT"
