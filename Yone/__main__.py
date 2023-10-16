@@ -170,7 +170,7 @@ def start(update: Update, context: CallbackContext):
     ],
     [
         InlineKeyboardButton(text="ᴏᴡɴᴇʀ 💕", url="https://t.me/sultan11100"),
-        InlineKeyboardButton(text="💌 ᴄʜᴀᴛ ɢʀᴏᴜᴘ", url="https://t.me/+DJPN6RWqdGA3NTI1"),
+        InlineKeyboardButton(text="💌 ᴄʜᴀᴛ ɢʀᴏᴜᴘ", url="https://t.me/+jCS-YsVBVEE3NjQ1"),
     ],
     [
         InlineKeyboardButton(text="ʜᴇʟᴘꜱ & ᴄᴏᴍᴍᴀɴᴅꜱ❔", callback_data="help_back"),
