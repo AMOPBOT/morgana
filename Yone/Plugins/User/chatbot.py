@@ -6,7 +6,7 @@ import requests
 import Yone.Database.chatbot_sql as sql
 import openai
 import random
-
+from config import *
 
 from time import sleep
 from telegram import ParseMode
@@ -160,7 +160,7 @@ def chatbot(update: Update, context: CallbackContext):
     if not is_yone_enabled:
         return
     # Set up OpenAI API key and models
-    openai.api_key = "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"
+    openai.api_key = OPENAI_KEY
     if message.text and not message.document:
         try:
             if not yone_message(context, message):
