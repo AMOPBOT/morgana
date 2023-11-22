@@ -6,7 +6,6 @@ import requests
 import Yone.Database.chatbot_sql as sql
 import openai
 import random
-from config import *
 
 from time import sleep
 from telegram import ParseMode
