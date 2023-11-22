@@ -1,4 +1,8 @@
-﻿cachetools==4.2.2
+aiofiles==23.2.1
+aiohttp==3.9.0
+apscheduler==3.6.3
+asyncio==3.4.3
+cachetools==4.2.2
 python-telegram-bot==13.14
 Telethon
 pyrate-limiter==2.8.2
@@ -14,13 +18,14 @@ pretty_errors
 alphabet_detector
 wget
 faker
+motor==3.3.2
 pyaztro
-psutil
+psutil==5.9.6
 gpytranslate
 cloudscraper
 bs4
 lxml
-pillow
+pillow==10.1.0
 telegraph
 wikipedia
 redis
@@ -40,3 +45,7 @@ pyrogram
 openai
 youtube_search
 replicate
+TgCrypto
+pyshorteners
+faker
+pyfiglet
