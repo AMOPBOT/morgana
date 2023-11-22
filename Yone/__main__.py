@@ -50,6 +50,7 @@ admin_help_button,
 tools_help_button,
 toolss_help_button,
 send_tools_help,
+send_toolss_help,
 HELP_STRINGS,
 IMPORTED,
 IMPORTED,
@@ -134,6 +135,13 @@ def start(update: Update, context: CallbackContext):
                     USER[mod].__help__,
                     InlineKeyboardMarkup(
                         [[InlineKeyboardButton(text="⬅️ BACK", callback_data="tools_back")]]
+                    ),
+                )
+                send_toolss_help(
+                    update.effective_chat.id,
+                    USER[mod].__help__,
+                    InlineKeyboardMarkup(
+                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="toolss_back")]]
                     ),
                 )
 
