@@ -9,7 +9,7 @@ import random
 
 from time import sleep
 from telegram import ParseMode
-from Yone import dispatcher, updater, SUPPORT_CHAT
+from Yone import dispatcher, updater, SUPPORT_CHAT, OPENAI_KEY
 from Yone.Plugins.Admin.log_channel import gloggable
 from telegram import (
     CallbackQuery,
