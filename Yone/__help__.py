@@ -129,7 +129,7 @@ path =r'Yone/Plugins/Toolss/'
 toolss_list_of_files = []
 for root, dirs, files in os.walk(path):
     for file in files:
-        tools_list_of_files.append(os.path.join(root,file))
+        toolss_list_of_files.append(os.path.join(root,file))
 
 toolss_mod_name = [
         name[:-3].replace("/", ".").replace("\\", ".")
