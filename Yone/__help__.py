@@ -21,11 +21,13 @@ IMPORTED = {}
 ADMIN_IMPORTED = {}
 USER_IMPORTED = {}
 TOOLS_IMPORTED = {}
+TOOLSs_IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
 ADMIN = {}
 USER = {}
 TOOLS = {}
+TOOLSs = {}
 STATS = []
 USER_INFO = []
 DATA_IMPORT = []
@@ -123,6 +125,32 @@ for t_module_name in tools_mod_name:
     if hasattr(tools_imported_module, "__help__") and tools_imported_module.__help__:
         TOOLS[tools_imported_module.__mod_name__.lower()] = tools_imported_module
 
+path =r'Yone/Plugins/Toolss/'
+toolss_list_of_files = []
+for root, dirs, files in os.walk(path):
+    for file in files:
+        tools_list_of_files.append(os.path.join(root,file))
+
+toolss_mod_name = [
+        name[:-3].replace("/", ".").replace("\\", ".")
+        for name in toolss_list_of_files
+        if isfile(name) and name.endswith(".py") and not name.endswith("__init__.py")
+    ]
+
+for t_module_name in toolss_mod_name:
+    toolss_imported_module = importlib.import_module(t_module_name)
+    if not hasattr(toolss_imported_module, "__mod_name__"):
+        toolss_imported_module.__mod_name__ = toolss_imported_module.__name__
+
+    if toolss_imported_module.__mod_name__.lower() not in TOOLS_IMPORTED:
+        TOOLSS_IMPORTED[toolss_imported_module.__mod_name__.lower()] = toolss_imported_module
+    else:
+        raise Exception("Can't have two modules with the same name! Please change one")
+
+    if hasattr(toolss_imported_module, "__help__") and toolss_imported_module.__help__:
+        TOOLSS[toolss_imported_module.__mod_name__.lower()] = toolss_imported_module
+
+
 for module_name in mod_name:
     imported_module = importlib.import_module(module_name)
     if not hasattr(imported_module, "__mod_name__"):
@@ -202,7 +230,16 @@ def send_tools_help(chat_id, text, keyboard=None):
         disable_web_page_preview=True,
         reply_markup=keyboard,
     )
-
+def send_toolss_help(chat_id, text, keyboard=None):
+    if not keyboard:
+        keyboard = InlineKeyboardMarkup(paginate_modules(0, TOOLSS, "toolss"))
+    dispatcher.bot.send_message(
+        chat_id=chat_id,
+        text=text,
+        parse_mode=ParseMode.MARKDOWN,
+        disable_web_page_preview=True,
+        reply_markup=keyboard,
+    )
 def admin_help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"admin_module\((.+?)\)", query.data)
@@ -396,7 +433,70 @@ def tools_help_button(update, context):
 
     except BadRequest:
         pass
+def toolss_help_button(update, context):
+    query = update.callback_query
+    mod_match = re.match(r"toolss_module\((.+?)\)", query.data)
+    prev_match = re.match(r"toolss_prev\((.+?)\)", query.data)
+    next_match = re.match(r"toolss_next\((.+?)\)", query.data)
+    back_match = re.match(r"toolss_back", query.data)
 
+    try:
+        if mod_match:
+            module = mod_match.group(1)
+            text = (
+                "Here is the help for the *{}* module:\n".format(
+                    TOOLSS[module].__mod_name__
+                )
+                + TOOLSS[module].__help__
+            )
+            query.message.edit_text( 
+                text=text,
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [ 
+                      [InlineKeyboardButton(text="Back", callback_data="toolss_back")]
+                        
+                    ]
+                ),
+            )
+
+        elif prev_match:
+            curr_page = int(prev_match.group(1))
+            query.message.edit_text(
+                text=HELP_STRINGS,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(curr_page - 1, TOOLSS, "toolss")
+                ),
+            )
+
+        elif next_match:
+            next_page = int(next_match.group(1))
+            query.message.edit_text(
+                text=HELP_STRINGS,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, TOOLSS, "toolss")
+                ),
+            )
+
+        elif back_match:
+            query.message.edit_text(
+                text=HELP_STRINGS,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, TOOLSS, "toolss")
+                ),
+            )
+
+        # ensure no spinny white circle
+        context.bot.answer_callback_query(query.id)
+        # query.message.delete()
+
+    except BadRequest:
+        pass
+        
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
