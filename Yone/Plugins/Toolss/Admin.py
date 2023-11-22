@@ -23,4 +23,4 @@ __help__ = """ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs
 
   """
 
-__mod_name__ = "Admin"
+__mod_name__ = "Music-Admins"
