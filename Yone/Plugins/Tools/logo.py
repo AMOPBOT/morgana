@@ -1,11 +1,13 @@
-import os 
+import os
 import glob
 import io
 import random
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from Yone import dispatcher
-from Yone import BOT_USERNAME, OWNER_ID,BOT_NAME, OWNER_ID, telethn
+from telethon.tl.types import ChatBannedRights
+from telethon import TelegramClient, events, Button
+from Yone import OWNER_ID, telethn, BOT_NAME, SUPPORT_CHAT, BOT_USERNAME
 from Yone.Plugins.disable import DisableAbleCommandHandler
 from telegram import Update, ParseMode
 from Yone.events import register
@@ -244,16 +246,21 @@ LOGO_LINKS = [
     "https://telegra.ph/file/9849b3940f063b065f4e3.jpg",
 ]
 
+button_row = [
+    [Button.url('Aᴅᴅ Mᴇ Yᴏᴜʀ Gʀᴏᴜᴘ', f'https://t.me/{BOT_USERNAME}?startgroup=new')]
+]
+
+
 
 @register(pattern="^/logo ?(.*)")
 async def lego(event):
     quew = event.pattern_match.group(1)
     if event.sender_id != OWNER_ID and not quew:
         await event.reply(
-            "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ​ !`\n`Example /logo <AMBOT>`"
+            "`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ!`\n`Example /logo <am>`"
         )
         return
-    pesan = await event.reply("⚡️")
+    pesan = await event.reply("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ​...**")
     try:
         text = event.pattern_match.group(1)
         randc = random.choice(LOGO_LINKS)
@@ -263,7 +270,7 @@ async def lego(event):
         fnt = glob.glob("./Yone/resources/fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
-        bbox= draw.textbbox((0,0),text, font=font)
+        bbox = draw.textbbox((0, 0), text, font=font)
         w, h = bbox[2] - bbox[0], bbox[3] - bbox[1]
         h += int(h * 0.21)
         draw.text(
@@ -275,7 +282,12 @@ async def lego(event):
         x = (image_widthz - w) / 2
         y = (image_heightz - h) / 2 + 6
         draw.text(
-            (x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black"
+            (x, y),
+            text,
+            font=font,
+            fill="white",
+            stroke_width=1,
+            stroke_fill="black",
         )
         image_width, image_height = img.size
         draw.text(
@@ -287,32 +299,35 @@ async def lego(event):
         x = (image_widthz - w) / 2
         y = (image_heightz - h) / 2 + 6
         draw.text(
-            (x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black"
+            (x, y),
+            text,
+            font=font,
+            fill="white",
+            stroke_width=1,
+            stroke_fill="black",
         )
-        fname = "Am.png"
+        fname = "mukesh.png"
         img.save(fname, "png")
         await telethn.send_file(
             event.chat_id,
             file=fname,
-            caption=f"""━━━━━━━{BOT_NAME}|━━━━━━━
+            caption=f"""━━━━━━━{BOT_NAME}━━━━━━━
 
 ☘️ ʟᴏɢᴏ ᴄʀᴇᴀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ☘️
 ◈──────────────◈
 🔥 ᴄʀᴇᴀᴛᴇᴅ ʙʏ : @{BOT_USERNAME}
-━━━━━━━{BOT_NAME}━━━━━━━""",
-)
+━━━━━━━{BOT_NAME}━━━━━━━""", buttons=button_row
+        )
         await pesan.delete()
         if os.path.exists(fname):
             os.remove(fname)
     except Exception as e:
-        await event.reply(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @AM_YTSUPPORT ")
-
+        await event.reply(f"ᴇʀʀᴏʀ {e}, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @{SUPPORT_CHAT} ")
 
 __mod_name__ = "Lᴏɢᴏ"
 
-__help__ = """
-@AM_YTBOTT ᴄᴀɴ ᴄʀᴇᴀᴛᴇ sᴏᴍᴇ ʙᴇᴀᴜᴛɪғᴜʟ ᴀɴᴅ ᴀᴛᴛʀᴀᴄᴛɪᴠᴇ ʟᴏɢᴏ ғᴏʀ ʏᴏᴜʀ ᴘʀᴏғɪʟᴇ ᴘɪᴄs.
-
+__help__ = f"""
+@{BOT_USERNAME} ᴄᴀɴ ᴄʀᴇᴀᴛᴇ sᴏᴍᴇ ʙᴇᴀᴜᴛɪғᴜʟ ᴀɴᴅ ᴀᴛᴛʀᴀᴄᴛɪᴠᴇ ʟᴏɢᴏ ғᴏʀ ʏᴏᴜʀ ᴘʀᴏғɪʟᴇ ᴘɪᴄs.
 
 ❍ /logo (Text) *:* ᴄʀᴇᴀᴛᴇ ᴀ ʟᴏɢᴏ ᴏғ ʏᴏᴜʀ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴡɪᴛʜ ʀᴀɴᴅᴏᴍ ᴠɪᴇᴡ.
 """
