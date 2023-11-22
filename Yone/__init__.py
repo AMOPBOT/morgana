@@ -66,7 +66,8 @@ if ENV:
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "AM_YTSUPPORT")
     EVENT_LOGS = os.environ.get("EVENT_LOGS", "-1001841879487")
     JOIN_LOGGER = os.environ.get("JOIN_LOGGER", "-1001841879487")
-
+    DEEP_API = os.environ.get("DEEP_API","c8e3d7fc-1f7e-455b-8019-5c1b7f21047a")
+    OPENAI_KEY = os.environ.get("OPENAI_KEY","")
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
     CERT_PATH = os.environ.get("CERT_PATH")
     URL = os.environ.get("URL", "")  # Does not contain token
@@ -114,6 +115,8 @@ else:
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
     DB_URI = Config.DATABASE_URL
+    DEEP_API = Config.DEEP_API
+    OPENAI_KEY = Config.OPENAI_KEY
     STRICT_GBAN = Config.STRICT_GBAN
     BOT_USERNAME = Config.BOT_USERNAME
     BOT_NAME = Config.BOT_NAME
