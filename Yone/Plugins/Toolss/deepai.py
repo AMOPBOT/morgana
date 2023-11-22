@@ -38,4 +38,4 @@ __help__ = """ask any this
 ‣ `/deep`*:* Your Text
   """
 
-__mod_name__ = "DeepAI"
+__mod_name__ = "DeepAIOp"
