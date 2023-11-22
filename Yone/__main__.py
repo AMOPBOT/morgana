@@ -180,7 +180,9 @@ def start(update: Update, context: CallbackContext):
         InlineKeyboardButton(text="💌 ᴄʜᴀᴛ ɢʀᴏᴜᴘ", url="https://t.me/+jCS-YsVBVEE3NjQ1"),
     ],
     [
-        InlineKeyboardButton(text="ʜᴇʟᴘꜱ ❔", callback_data="help_back"),
+        InlineKeyboardButton(text="ʜᴇʟᴘꜱ ᴄᴏᴍᴍᴀɴᴅꜱ❔", callback_data="help_back"),
+    ],
+    [
         InlineKeyboardButton(text="ᴍᴜꜱɪᴄ ᴄᴏᴍᴍᴀɴᴅꜱ ❔", callback_data="toolss_back"),
     ],
 ]),
@@ -273,6 +275,8 @@ def yone_about_callback(update: Update, context: CallbackContext):
     ],
     [
         InlineKeyboardButton(text="ʜᴇʟᴘꜱ ᴄᴏᴍᴍᴀɴᴅꜱ❔", callback_data="help_back"),
+    ],
+    [
         InlineKeyboardButton(text="ᴍᴜꜱɪᴄ ᴄᴏᴍᴍᴀɴᴅꜱ ❔", callback_data="toolss_back"),
     ],
 ]),
