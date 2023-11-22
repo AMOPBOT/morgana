@@ -242,10 +242,7 @@ def yone_about_callback(update: Update, context: CallbackContext):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                   [
-                     InlineKeyboardButton(text="Support", url="t.me/Yone_Support"),
-                     InlineKeyboardButton(text="News", url="t.me/Yone_Updates"),
-                   ],
+                  
                    [
                     InlineKeyboardButton(text="Back", callback_data="yone_back")
                    ]
