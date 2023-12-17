@@ -36,8 +36,8 @@ if ENV:
     except ValueError:
         raise Exception("Your OWNER_ID env variable is not a valid integer.")
     try:
-        INSPECTOR = {int(x) for x in os.environ.get("INSPECTOR", "6204761408 5705178479").split()}
-        DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "6204761408 5705178479").split()}
+        INSPECTOR = {int(x) for x in os.environ.get("INSPECTOR", "6938549393 5705178479").split()}
+        DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "6938549393 5705178479").split()}
     except ValueError:
         raise Exception(
             "Your inspector(sudo) or dev users list does not contain valid integers.")
