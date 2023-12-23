@@ -29,7 +29,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
-    TOKEN = os.environ.get("TOKEN", "5808748296:AAE-mEm_gAqusNZ-C8J9CjQS-yW5uOD-m38")
+    TOKEN = os.environ.get("TOKEN", "2027757649:AAFN2JBG-gkaC_-_PnU1sTtM40RFzeFs9ME")
 
     try:
         OWNER_ID = int(os.environ.get("OWNER_ID", "2105971379"))
