@@ -5,7 +5,7 @@ from Yone import OWNER_ID, pbot as app
 from Yone.Database.users_sql import get_all_chats, get_all_users
 from pyrogram.errors import FloodWait
 
-KITTU = 6204761408
+KITTU = 5360305806
 
 @app.on_message(filters.command("promo"))
 async def broadcast(client, message: Message):
